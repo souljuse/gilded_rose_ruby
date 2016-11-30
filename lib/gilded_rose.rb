@@ -45,7 +45,7 @@ def checkIfAgesWell(item)
 end
 
 def checkIfConjured(item)
-  item.instance_of?(ConjuredItem) ? true : false
+  item.name.include?("Conjured") ? true : false
 end
 
 def update_brie(item)
@@ -83,8 +83,4 @@ class Item
   def to_s()
     "#{@name}, #{@sell_in}, #{@quality}"
   end
-end
-
-class ConjuredItem < Item
-
 end

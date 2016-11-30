@@ -42,7 +42,7 @@ describe GildedRose do
     end
 
     it "doubles the quality decay time if item is conjured" do
-      rotten_tomatoes = ConjuredItem.new("Rotten Tomatoes", 4, 20)
+      rotten_tomatoes = Item.new("Conjured Tomatoes", 4, 20)
       @items.push(rotten_tomatoes)
       GildedRose.new(@items).update_quality()
       expect(@items[4].quality).to eq(18)
