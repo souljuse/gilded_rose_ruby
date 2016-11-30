@@ -1,4 +1,4 @@
-require File.join(File.dirname(__FILE__), '..', 'gilded_rose.rb')
+require File.join(File.dirname(__FILE__), '..', '/lib/gilded_rose.rb')
 
 require 'rspec'
 
