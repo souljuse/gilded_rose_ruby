@@ -58,7 +58,7 @@ def update_ticket(item)
   if item.sell_in < 11
     item.quality += 1
   end
-  if item.sell_in < 11
+  if item.sell_in < 7
     item.quality += 1
   end
   if item.sell_in < 0
