@@ -7,26 +7,17 @@ class GildedRose
   def update_quality()
     @items.each do |item|
       if checkIfSulfuras(item)
+        #Do nothing
       elsif checkIfAgesWell(item)
-        item.sell_in -= 1
-        if item.quality < 50
-          item.quality += 1
-          if checkIfTicket(item)
-            update_ticket(item)
-          elsif checkIfBrie(item)
-            update_brie(item)
-          end
-        end
+        updateAgingWellItems(item)
       else
-        item.sell_in -= 1
-        item.quality -= 1
-        if checkIfConjured(item)
-          update_conjured(item)
-        end
+        updateDecayingItems(item)
       end
     end
   end
 end
+
+private
 
 def checkIfSulfuras(item)
   item.name == "Sulfuras, Hand of Ragnaros"? true : false
@@ -68,6 +59,26 @@ end
 
 def update_conjured(item)
   item.quality -= 1
+end
+
+def updateAgingWellItems(item)
+  item.sell_in -= 1
+  if item.quality < 50
+    item.quality += 1
+    if checkIfTicket(item)
+      update_ticket(item)
+    elsif checkIfBrie(item)
+      update_brie(item)
+    end
+  end
+end
+
+def updateDecayingItems(item)
+  item.sell_in -= 1
+  item.quality -= 1
+  if checkIfConjured(item)
+    update_conjured(item)
+  end
 end
 
 
